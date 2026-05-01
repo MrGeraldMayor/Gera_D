@@ -13,10 +13,11 @@ import {
   IconButton,
   Icon
 } from "@chakra-ui/react";
-import { FaSpotify } from "react-icons/fa";
+import { FaSpotify, FaYoutube, FaApple, FaAmazon } from "react-icons/fa";
 import { SiBandlab } from "react-icons/si";
 
-// Custom SVG for Audiomack
+// --- 1. ICON DEFINITIONS (Must stay at the top) ---
+
 const AudiomackIcon = (props) => (
   <Icon viewBox="0 0 24 24" {...props}>
     <path
@@ -26,7 +27,6 @@ const AudiomackIcon = (props) => (
   </Icon>
 );
 
-// Custom SVG for Boomplay
 const BoomplayIcon = (props) => (
   <Icon viewBox="0 0 24 24" {...props}>
     <path
@@ -36,11 +36,19 @@ const BoomplayIcon = (props) => (
   </Icon>
 );
 
+// --- 2. MAIN FOOTER COMPONENT ---
+
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <Box bg="gray.950" color="gray.200" mt={20}>
+    <Box 
+      as="footer"
+      bg="#050505"      // Locked dark background
+      color="gray.200"  // Locked light text
+      mt={20}
+      width="100%"
+    >
       <Container maxW="container.lg" py={12}>
         <Stack 
           direction={{ base: "column", md: "row" }} 
@@ -48,12 +56,12 @@ export default function Footer() {
           align={{ base: "center", md: "start" }} 
           gap={10}
         >
-          {/* Brand/Logo Section */}
+          {/* Brand Section */}
           <VStack align={{ base: "center", md: "start" }} gap={4}>
             <Heading size="md" color="teal.400" letterSpacing="widest">
               DEDEIBE GERALDINE
             </Heading>
-            <Text fontSize="sm" textAlign={{ base: "center", md: "left" }} maxW="300px">
+            <Text fontSize="sm" textAlign={{ base: "center", md: "left" }} maxW="300px" color="gray.400">
               Bringing the soul of jazz to the modern era. Follow my journey on all major streaming platforms.
             </Text>
           </VStack>
@@ -62,55 +70,68 @@ export default function Footer() {
           <HStack gap={10} align="start">
             <VStack align="start" gap={2}>
               <Text fontWeight="bold" color="white">Explore</Text>
-              <Link href="#" variant="plain" _hover={{ color: "teal.400" }}>Home</Link>
-              <Link href="#" variant="plain" _hover={{ color: "teal.400" }}>About</Link>
-              <Link href="#" variant="plain" _hover={{ color: "teal.400" }}>Tour</Link>
+              <Link href="#" color="gray.300" _hover={{ color: "teal.400" }}>Home</Link>
+              <Link href="#" color="gray.300" _hover={{ color: "teal.400" }}>About</Link>
+              <Link href="#" color="gray.300" _hover={{ color: "teal.400" }}>Tour</Link>
             </VStack>
             <VStack align="start" gap={2}>
               <Text fontWeight="bold" color="white">Contact</Text>
-              <Link href="mailto:info@geralidine.com" variant="plain" _hover={{ color: "teal.400" }}>Booking</Link>
-              <Link href="#" variant="plain" _hover={{ color: "teal.400" }}>Press Kit</Link>
+              <Link href="mailto:info@geralidine.com" color="gray.300" _hover={{ color: "teal.400" }}>Booking</Link>
+              <Link href="#" color="gray.300" _hover={{ color: "teal.400" }}>Press Kit</Link>
             </VStack>
           </HStack>
 
           {/* Music Streaming Links */}
           <VStack align={{ base: "center", md: "end" }} gap={4}>
             <Text fontWeight="bold" color="white">Listen Now</Text>
-            <HStack gap={2}>
-              {/* Spotify */}
+            <HStack gap={1} wrap="wrap" justify="center">
               <IconButton 
-                as="a" href="https://spotify.com" target="_blank"
-                aria-label="Spotify" variant="ghost" color="green.400" 
+                as="a" href="#" aria-label="Spotify" variant="ghost" color="green.400" 
                 _hover={{ bg: "whiteAlpha.200", color: "green.300" }}
               >
-                <FaSpotify size="22px" />
+                <FaSpotify size="20px" />
               </IconButton>
 
-              {/* Audiomack */}
               <IconButton 
-                as="a" href="https://audiomack.com" target="_blank"
-                aria-label="Audiomack" variant="ghost" color="orange.400" 
-                _hover={{ bg: "whiteAlpha.200", color: "orange.300" }}
+                as="a" href="#" aria-label="Apple Music" variant="ghost" color="pink.400" 
+                _hover={{ bg: "whiteAlpha.200", color: "pink.300" }}
               >
-                <AudiomackIcon boxSize="22px" />
+                <FaApple size="20px" />
               </IconButton>
 
-              {/* Boomplay */}
               <IconButton 
-                as="a" href="https://boomplay.com" target="_blank"
-                aria-label="Boomplay" variant="ghost" color="blue.400" 
-                _hover={{ bg: "whiteAlpha.200", color: "blue.300" }}
-              >
-                <BoomplayIcon boxSize="24px" />
-              </IconButton>
-
-              {/* Bandlab */}
-              <IconButton 
-                as="a" href="https://bandlab.com" target="_blank"
-                aria-label="Bandlab" variant="ghost" color="red.500" 
+                as="a" href="#" aria-label="YouTube" variant="ghost" color="red.500" 
                 _hover={{ bg: "whiteAlpha.200", color: "red.400" }}
               >
-                <SiBandlab size="22px" />
+                <FaYoutube size="20px" />
+              </IconButton>
+
+              <IconButton 
+                as="a" href="#" aria-label="Audiomack" variant="ghost" color="orange.400" 
+                _hover={{ bg: "whiteAlpha.200", color: "orange.300" }}
+              >
+                <AudiomackIcon boxSize="20px" />
+              </IconButton>
+
+              <IconButton 
+                as="a" href="#" aria-label="Boomplay" variant="ghost" color="blue.400" 
+                _hover={{ bg: "whiteAlpha.200", color: "blue.300" }}
+              >
+                <BoomplayIcon boxSize="22px" />
+              </IconButton>
+
+              <IconButton 
+                as="a" href="#" aria-label="Bandlab" variant="ghost" color="red.600" 
+                _hover={{ bg: "whiteAlpha.200", color: "red.500" }}
+              >
+                <SiBandlab size="20px" />
+              </IconButton>
+
+              <IconButton 
+                as="a" href="#" aria-label="Amazon" variant="ghost" color="cyan.400" 
+                _hover={{ bg: "whiteAlpha.200", color: "cyan.300" }}
+              >
+                <FaAmazon size="20px" />
               </IconButton>
             </HStack>
           </VStack>
@@ -123,12 +144,12 @@ export default function Footer() {
           justify="space-between" 
           align="center" 
           fontSize="xs" 
-          color="gray.600"
+          color="gray.500"
         >
           <Text>© {currentYear} Dedeibe Geraldine. All rights reserved.</Text>
           <HStack gap={6}>
-            <Link href="#">Privacy Policy</Link>
-            <Link href="#">Terms of Use</Link>
+            <Link href="#" _hover={{ color: "white" }}>Privacy Policy</Link>
+            <Link href="#" _hover={{ color: "white" }}>Terms of Use</Link>
           </HStack>
         </Stack>
       </Container>
