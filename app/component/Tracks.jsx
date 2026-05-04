@@ -17,6 +17,13 @@ import PlayCircleOutlineIcon from '@mui/icons-material/PlayArrow';
 import CloudIcon from '@mui/icons-material/Cloud';
 import RadioIcon from '@mui/icons-material/Radio';
 
+
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSpotify } from '@fortawesome/free-brands-svg-icons';
+import { faAmazon } from '@fortawesome/free-brands-svg-icons';
+import { faPandora } from '@fortawesome/free-brands-svg-icons';
+
 const Track = () => {
   const [songs, setSongs] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -74,13 +81,13 @@ const Track = () => {
               <Divider sx={{ my: 2 }}>Listen On</Divider>
 
               <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 1 }}>
-                <MusicLinkButton label="Spotify" icon={<LibraryMusicIcon />} url={song.spotify_url} color="#1DB954" />
+                <MusicLinkButton label="Spotify" icon={<FontAwesomeIcon icon={faSpotify} />} url={song.spotify_url} color="#1DB954" />
                 <MusicLinkButton label="Apple" icon={<AppleIcon />} url={song.apple_url} color="#FC3C44" />
                 <MusicLinkButton label="YouTube" icon={<YouTubeIcon />} url={song.yt_url} color="#FF0000" />
                 <MusicLinkButton label="SoundCloud" icon={<CloudIcon />} url={song.soundcloud_url} color="#FF5500" />
-                <MusicLinkButton label="Amazon" icon={<PlayCircleOutlineIcon />} url={song.amazon_url} color="#00A8E1" />
+                <MusicLinkButton label="Amazon" icon={<FontAwesomeIcon icon={faAmazon} />} url={song.amazon_url} color="#00A8E1" />
                 <MusicLinkButton label="Tidal" icon={<GraphicEqIcon />} url={song.tidal_url} color="#000000" />
-                <MusicLinkButton label="Pandora" icon={<CloudQueueIcon />} url={song.pandora_url} color="#00A0EE" />
+                <MusicLinkButton label="Pandora" icon={<FontAwesomeIcon icon={faPandora} />} url={song.pandora_url} color="#00A0EE" />
                 <MusicLinkButton label="Audiomack" icon={<LibraryMusicIcon />} url={song.audiomack_url} color="#FFA200" />
                 <MusicLinkButton label="Boomplay" icon={<PlayCircleOutlineIcon />} url={song.boomplay_url} color="#000000" />
                 <MusicLinkButton label="BandLab" icon={<GraphicEqIcon />} url={song.bandlab_url} color="#EE2C3C" />
