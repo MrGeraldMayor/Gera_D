@@ -86,7 +86,7 @@ export default function Footer() {
             <Text fontWeight="bold" color="white">Listen Now</Text>
             <HStack gap={1} wrap="wrap" justify="center">
               <IconButton 
-                as="a" href="#" aria-label="Spotify" variant="ghost" color="green.400" 
+                as="a" href="https://open.spotify.com/user/31oc33pzznbdarp4dj4i724edkku" aria-label="Spotify" variant="ghost" color="green.400" 
                 _hover={{ bg: "whiteAlpha.200", color: "green.300" }}
               >
                 <FaSpotify size="20px" />
@@ -100,7 +100,7 @@ export default function Footer() {
               </IconButton>
 
               <IconButton 
-                as="a" href="#" aria-label="YouTube" variant="ghost" color="red.500" 
+                as="a" href="https://music.youtube.com/@DedeibeGeraldine" aria-label="YouTube" variant="ghost" color="red.500" 
                 _hover={{ bg: "whiteAlpha.200", color: "red.400" }}
               >
                 <FaYoutube size="20px" />
@@ -121,14 +121,14 @@ export default function Footer() {
               </IconButton>
 
               <IconButton 
-                as="a" href="#" aria-label="Bandlab" variant="ghost" color="red.600" 
+                as="a" href="https://www.bandlab.com/gerat18" aria-label="Bandlab" variant="ghost" color="red.600" 
                 _hover={{ bg: "whiteAlpha.200", color: "red.500" }}
               >
                 <SiBandlab size="20px" />
               </IconButton>
 
               <IconButton 
-                as="a" href="#" aria-label="Amazon" variant="ghost" color="cyan.400" 
+                as="a" href="https://music.amazon.com/profiles/yumuuvexmt5ampvl5ao4lyladq?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_xikJhOb2LvlsuHzZFKN84LzFp" aria-label="Amazon" variant="ghost" color="cyan.400" 
                 _hover={{ bg: "whiteAlpha.200", color: "cyan.300" }}
               >
                 <FaAmazon size="20px" />

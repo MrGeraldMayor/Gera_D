@@ -13,7 +13,7 @@ import {
   ListItem,
   ListItemButton,
   ListItemText,
-  Container
+  Container,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 
@@ -26,16 +26,39 @@ export default function Top() {
     setMobileOpen((prevState) => !prevState);
   };
 
-  // Mobile Drawer Layout
+  // Smooth scroll to section
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      const offset = 80; // Adjust for navbar height
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition - bodyRect - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
+    setMobileOpen(false); // Close mobile drawer
+  };
+
+  // Mobile Drawer
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center", pt: 2 }}>
-      <Typography variant="h6" sx={{ my: 2, fontWeight: "bold", color: "teal.600" }}>
+      <Typography
+        variant="h6"
+        sx={{ my: 2, fontWeight: "bold", color: "#26a69a" }}
+      >
         GERA D
       </Typography>
       <List>
         {navItems.map((item) => (
           <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: "center" }}>
+            <ListItemButton
+              sx={{ textAlign: "center" }}
+              onClick={() => scrollToSection(item.toLowerCase())}
+            >
               <ListItemText primary={item} />
             </ListItemButton>
           </ListItem>
@@ -46,13 +69,13 @@ export default function Top() {
 
   return (
     <>
-      <AppBar 
-        position="sticky" 
-        elevation={0} 
-        sx={{ 
-          bgcolor: "#0a0a0a", // Removes default blue
+      <AppBar
+        position="sticky"
+        elevation={0}
+        sx={{
+          bgcolor: "#0a0a0a",
           borderBottom: "1px solid",
-          borderColor: "grey.900"
+          borderColor: "grey.900",
         }}
       >
         <Container maxWidth="lg">
@@ -61,11 +84,13 @@ export default function Top() {
             <Typography
               variant="h6"
               component="div"
-              sx={{ 
-                fontWeight: "bold", 
-                letterSpacing: 2, 
-                color: "#26a69a" // Teal 400
+              sx={{
+                fontWeight: "bold",
+                letterSpacing: 2,
+                color: "#26a69a",
+                cursor: "pointer",
               }}
+              onClick={() => scrollToSection("home")}
             >
               GERA D
             </Typography>
@@ -73,7 +98,11 @@ export default function Top() {
             {/* Desktop Navigation */}
             <Box sx={{ display: { xs: "none", md: "block" } }}>
               {navItems.map((item) => (
-                <Button key={item} sx={{ color: "#fff", ml: 2, textTransform: 'none' }}>
+                <Button
+                  key={item}
+                  sx={{ color: "#fff", ml: 3, textTransform: "none" }}
+                  onClick={() => scrollToSection(item.toLowerCase())}
+                >
                   {item}
                 </Button>
               ))}
@@ -93,13 +122,13 @@ export default function Top() {
         </Container>
       </AppBar>
 
-      {/* Mobile Drawer Component */}
+      {/* Mobile Drawer */}
       <nav>
         <Drawer
           variant="temporary"
           open={mobileOpen}
           onClose={handleDrawerToggle}
-          ModalProps={{ keepMounted: true }} // Better open performance on mobile.
+          ModalProps={{ keepMounted: true }}
           sx={{
             display: { xs: "block", md: "none" },
             "& .MuiDrawer-paper": { boxSizing: "border-box", width: 240 },
